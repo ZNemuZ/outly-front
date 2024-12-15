@@ -1,5 +1,16 @@
+import { FormEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
-export const Login = () => {
+export const Login = () => 
+  const [email,setEmail] = useState('')
+
+  const submitLoginHandler = async(e:FormEvent<HTMLFormElement>) =>{
+    e.preventDefault()
+    loginMutation.mutate
+  }
+  
+  
+  
+  {
   return (
     <div className="bg-[#202123] min-h-screen flex justify-center items-center">
       <div className="bg-[#2b2d31] p-8 rounded-lg  shadow-[0px_0px_15px_rgba(255,255,255,0.2)] text-center max-w-sm w-full ">
