@@ -18,7 +18,7 @@ export const Login = () => {
     <div className="bg-[#202123] min-h-screen flex justify-center items-center">
       <div className="bg-[#2b2d31] p-8 rounded-lg  shadow-[0px_0px_15px_rgba(255,255,255,0.2)] text-center max-w-sm w-full ">
         <h1 className="text-3xl font-bold text-gray-300 mb-6">Log In</h1>
-        <form className="space-y-4">
+        <form className="space-y-4" onClick={submitLoginHandler}>
           <div className="flex items-center bg-[#202123] p-3 rounded-full shadow-inner">
             <span className="text-gray-400 text-xl mr-3">
               <i className="fas fa-envelope"></i>
