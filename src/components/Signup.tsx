@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 export const Signup = () => {
   return (
     <div className="bg-[#202123] min-h-screen flex justify-center items-center">
-      <div className="bg-[#2b2d31] p-8 rounded-lg shadow-lg text-center">
+      <div className="bg-[#2b2d31] p-8 rounded-lg  shadow-[0px_0px_15px_rgba(255,255,255,0.2)] text-center max-w-sm w-full">
         <h1 className="text-3xl font-bold text-gray-300 mb-6">Sign Up</h1>
         <form className="space-y-4">
           <div className="flex items-center bg-[#202123] p-3 rounded-full shadow-inner">
@@ -48,6 +49,14 @@ export const Signup = () => {
             Sign Up
           </button>
         </form>
+        <div className="mt-4">
+          <p className="text-gray-400">
+            Don't have an account?{' '}
+            <Link to="/" className="text-blue-400 hover:underline">
+              Login here
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   )
