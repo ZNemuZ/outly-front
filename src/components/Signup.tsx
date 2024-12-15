@@ -38,6 +38,8 @@ export const Signup = () => {
               name="username"
               placeholder="UserName"
               className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+              onChange={(e) => setUname(e.target.value)}
+              value={uname}
             />
           </div>
 
@@ -50,6 +52,8 @@ export const Signup = () => {
               name="email"
               placeholder="EmailAddress"
               className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
 
@@ -62,12 +66,15 @@ export const Signup = () => {
               name="password"
               placeholder="Password"
               className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+              onChange={(e) => setPw(e.target.value)}
+              value={pw}
             />
           </div>
 
           <button
             type="submit"
             className="w-full bg-gray-400 text-gray-900 font-semibold py-3 rounded-full hover:bg-gray-300 transition"
+            disabled={!email || !pw || !uname}
           >
             Sign Up
           </button>
