@@ -28,6 +28,9 @@ export const Login = () => {
               name="email"
               placeholder="EmailAddress"
               className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+              autoFocus
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
 
@@ -40,12 +43,15 @@ export const Login = () => {
               name="password"
               placeholder="Password"
               className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+              onChange={(e) => setPw(e.target.value)}
+              value={pw}
             />
           </div>
 
           <button
             type="submit"
             className="w-full bg-gray-400 text-gray-900 font-semibold py-3 rounded-full hover:bg-gray-300 transition"
+            disabled={!email || !pw}
           >
             Log In
           </button>
