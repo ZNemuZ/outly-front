@@ -1,16 +1,56 @@
+import React from 'react'
 export const Signup = () => {
   return (
-    <div>
-      <div>
-        <h1>Signup</h1>
-      </div>
-      <div>
-        <form>
-          <input name="username" type="text" placeholder="UserName"></input>
-          <input name="email" type="email" placeholder="Email"></input>
-          <input name="password" type="password" placeholder="Password"></input>
+    <div className="bg-[#202123] min-h-screen flex justify-center items-center">
+      <div className="bg-[#2b2d31] p-8 rounded-lg shadow-lg text-center">
+        <h1 className="text-3xl font-bold text-gray-300 mb-6">Sign Up</h1>
+        <form className="space-y-4">
+          <div className="flex items-center bg-[#202123] p-3 rounded-full shadow-inner">
+            <span className="text-gray-400 text-xl mr-3">
+              <i className="fas fa-user"></i>
+            </span>
+            <input
+              type="text"
+              name="username"
+              placeholder="UserName"
+              className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+            />
+          </div>
+
+          <div className="flex items-center bg-[#202123] p-3 rounded-full shadow-inner">
+            <span className="text-gray-400 text-xl mr-3">
+              <i className="fas fa-envelope"></i>
+            </span>
+            <input
+              type="email"
+              name="email"
+              placeholder="EmailAddress"
+              className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+            />
+          </div>
+
+          <div className="flex items-center bg-[#202123] p-3 rounded-full shadow-inner">
+            <span className="text-gray-400 text-xl mr-3">
+              <i className="fas fa-lock"></i>
+            </span>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="bg-transparent flex-1 text-gray-300 focus:outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-gray-400 text-gray-900 font-semibold py-3 rounded-full hover:bg-gray-300 transition"
+          >
+            Sign Up
+          </button>
         </form>
       </div>
     </div>
   )
 }
+
+export default Signup
