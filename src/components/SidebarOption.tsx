@@ -6,9 +6,9 @@ type SidebarOptionProps = {
 }
 const SidebarOption: React.FC<SidebarOptionProps> = ({ text, Icon }) => {
   return (
-    <div>
-      <Icon />
-      <h2>{text}</h2>
+    <div className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700 transition duration-200 w-full">
+      <Icon className="text-gray-300 h-5 w-10" />
+      <h2 className="text-gray-300 text-sm font-medium">{text}</h2>
     </div>
   )
 }
