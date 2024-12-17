@@ -1,5 +1,5 @@
 import React from 'react'
-import Postbox from './PostBox'
+import Postbox from './Postbox'
 
 const Timeline = () => {
   return (
