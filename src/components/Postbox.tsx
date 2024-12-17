@@ -4,17 +4,31 @@ import React from 'react'
 const Postbox = () => {
   return (
     <div className="w-screen flex justify-center items-start w-full mt-10">
-      <div className="bg-[#262626] rounded-lg shadow-lg p-4 text-gray-300 w-full max-w-[900px]">
+      <div className="bg-[#262626] rounded-lg shadow-[0px_0px_8px_rgba(255,255,255,0.3)] p-4 text-gray-300 w-full max-w-[900px] mr-20">
         <form>
-          <div className="flex items-center space-x-3 mb-3">
+          <div className="flex items-start space-x-3 mb-3">
             {/* ユーザーアイコン */}
-            <Avatar alt="User Icon" className="h-8 w-8 rounded-full" />
-            {/* 入力フィールド */}
-            <input
-              type="text"
-              placeholder="Let's post it!"
-              className="w-full bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none"
-            />
+            <Avatar alt="User Icon" className="h-8 w-8 rounded-full mr-1" />
+
+            <div className="flex flex-col w-full space-y-3">
+              <div
+                className="border-b border-gray-300 pb-2 mb-4 "
+                style={{ borderColor: 'rgba(235, 228, 228, 0.2)' }}
+              >
+                {/* 入力フィールド */}
+                <input
+                  type="text"
+                  placeholder="Title"
+                  className="w-full bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none"
+                />
+              </div>
+              {/* 入力フィールド */}
+              <input
+                type="text"
+                placeholder="Let's post it!"
+                className="w-full bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none"
+              />
+            </div>
           </div>
           {/* Post ボタン */}
           <div className="flex justify-end">
