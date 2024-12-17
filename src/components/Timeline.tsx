@@ -1,4 +1,5 @@
 import React from 'react'
+import Postbox from './PostBox'
 
 const Timeline = () => {
   return (
@@ -8,7 +9,7 @@ const Timeline = () => {
         <h2>Home</h2>
       </div>
       {/*PostBox */}
-
+      <Postbox />
       {/*Post */}
     </div>
   )
