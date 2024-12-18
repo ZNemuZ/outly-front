@@ -1,11 +1,23 @@
 import { Avatar } from '@mui/material'
-import React from 'react'
+import React, { FormEvent } from 'react'
+import { useMutatPost } from '../hooks/useMutatePost'
+import useStore from '../store'
 
 const Postbox = () => {
+  const { createPostMutation } = useMutatPost()
+  const { editedPost } = useStore()
+  const updatePost = useStore((state) => state.updateEditedPost)
+  const submitPostHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    createPostMutation.mutate({
+      title: editedPost.title,
+      content: editedPost.content,
+    })
+  }
   return (
     <div className="w-screen flex justify-center items-start w-full mt-10">
       <div className="bg-[#262626] rounded-lg shadow-[0px_0px_8px_rgba(255,255,255,0.3)] p-4 text-gray-300 w-full max-w-[900px] mr-20">
-        <form>
+        <form onSubmit={submitPostHandler}>
           <div className="flex items-start space-x-3 mb-3">
             {/* ユーザーアイコン */}
             <Avatar alt="User Icon" className="h-8 w-8 rounded-full mr-1" />
@@ -20,6 +32,10 @@ const Postbox = () => {
                   type="text"
                   placeholder="Title"
                   className="w-full bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none"
+                  onChange={(e) =>
+                    updatePost({ ...editedPost, title: e.target.value })
+                  }
+                  value={editedPost.title || ''}
                 />
               </div>
               {/* 入力フィールド */}
@@ -27,6 +43,10 @@ const Postbox = () => {
                 type="text"
                 placeholder="Let's post it!"
                 className="w-full bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none"
+                onChange={(e) =>
+                  updatePost({ ...editedPost, content: e.target.value })
+                }
+                value={editedPost.content || ''}
               />
             </div>
           </div>
