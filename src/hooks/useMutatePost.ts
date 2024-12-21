@@ -10,7 +10,9 @@ export const useMutatPost = () => {
   const resetEditedPost = useStore((state) => state.resetEditedPost)
 
   const createPostMutation = useMutation({
-    mutationFn: async (post: Omit<Post, 'id' | 'created_at'>) => {
+    mutationFn: async (
+      post: Omit<Post, 'id' | 'nice_count' | 'created_at'>
+    ) => {
       const { data } = await axios.post<Post>(
         `${import.meta.env.VITE_API_URL}/posts`,
         post
