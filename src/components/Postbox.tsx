@@ -15,7 +15,7 @@ const Postbox = () => {
     })
   }
   return (
-    <div className="w-screen flex justify-center items-start w-full mt-10">
+    <div className="w-screen flex items-start mt-10">
       <div className="bg-[#262626] rounded-lg shadow-[0px_0px_8px_rgba(255,255,255,0.3)] p-4 text-gray-300 w-full max-w-[900px] mr-20">
         <form onSubmit={submitPostHandler}>
           <div className="flex items-start space-x-3 mb-3">
@@ -36,6 +36,7 @@ const Postbox = () => {
                     updatePost({ ...editedPost, title: e.target.value })
                   }
                   value={editedPost.title || ''}
+                  maxLength={50}
                 />
               </div>
               {/* 入力フィールド */}
@@ -47,6 +48,7 @@ const Postbox = () => {
                   updatePost({ ...editedPost, content: e.target.value })
                 }
                 value={editedPost.content || ''}
+                maxLength={300}
               />
             </div>
           </div>
