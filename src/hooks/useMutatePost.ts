@@ -11,7 +11,7 @@ export const useMutatPost = () => {
 
   const createPostMutation = useMutation({
     mutationFn: async (
-      post: Omit<Post, 'id' | 'nice_count' | 'created_at'>
+      post: Omit<Post, 'id' | 'username' | 'nice_count' | 'created_at'>
     ) => {
       const { data } = await axios.post<Post>(
         `${import.meta.env.VITE_API_URL}/posts`,
@@ -50,6 +50,18 @@ export const useMutatPost = () => {
         switchErrorHandling(err.response.data.message)
       } else {
         switchErrorHandling(err.response.data)
+      }
+    },
+  })
+
+  const listPostMutation = useMutation({
+    mutationFn: async () => axios.get(`${import.meta.env.VITE_API_URL}/posts}`),
+    onSuccess: (res) => {},
+    onError: (err: any) => {
+      if (err.responce.data.message) {
+        switchErrorHandling(err.responce.data.message)
+      } else {
+        switchErrorHandling(err.responce.data)
       }
     },
   })

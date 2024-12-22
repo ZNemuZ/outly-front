@@ -5,6 +5,7 @@ import { useError } from './userError'
 
 export const useQueryPosts = () => {
   const { switchErrorHandling } = useError()
+  //ポストデータを取得する非同期関数
   const getPosts = async () => {
     const { data } = await axios.get<Post[]>(
       `${import.meta.env.VITE_API_URL}/posts`,
