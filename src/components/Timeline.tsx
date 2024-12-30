@@ -4,7 +4,7 @@ import Postbox from './Postbox'
 import Posts from './Posts'
 
 const Timeline = () => {
-  const { data } = useQueryPosts() //post読み込み
+  const { data, isLoading } = useQueryPosts() //post読み込み
   return (
     <div>
       {/*Header */}
@@ -14,23 +14,22 @@ const Timeline = () => {
       {/*PostBox */}
       <Postbox />
       {/*Post */}
-      <Posts username="test" title="testTitle" content="Lets post it" />
-      <Posts username="" title="" content="" />
-      <ul>
-        {data?.map((post) => (
-          <Posts
-            username={post.username}
-            title={post.title}
-            content={post.content}
-          />
-        ))}
-      </ul>
-      {/*<Posts />
-      <Posts />
-      <Posts />
-      <Posts />
-      <Posts />
-      <Posts /> */}
+      {/* <Posts username="test" title="testTitle" content="Lets post it" />
+      <Posts username="" title="" content="" /> */}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {data?.map((posts) => (
+            <Posts
+              key={posts.id} //あとでuuidにしたいよ
+              username={posts.user_name}
+              title={posts.title}
+              content={posts.content}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   )
 }

@@ -11,17 +11,16 @@ export const useMutatPost = () => {
 
   const createPostMutation = useMutation({
     mutationFn: async (
-      post: Omit<Post, 'id' | 'username' | 'nice_count' | 'created_at'>
+      post: Omit<Post, 'id' | 'nice_count' | 'created_at'>
     ) => {
-      const { data } = await axios.post<Post>(
-        `${import.meta.env.VITE_API_URL}/posts`,
-        post
-      )
+      await axios.post<Post>(`${import.meta.env.VITE_API_URL}/posts`, post)
     },
-    onSuccess: (res) => {
+    onSuccess: () => {
       const previousPosts = queryClient.getQueryData<Post[]>(['posts'])
+      // console.log('Previous posts:', previousPosts)
+      // console.log('Response:', res)
       if (previousPosts) {
-        queryClient.setQueryData(['posts'], [...previousPosts, res]) //既存のpostが存在する場合は末尾に追加
+        queryClient.invalidateQueries({ queryKey: ['posts'] })
       }
       resetEditedPost()
     },
@@ -44,6 +43,7 @@ export const useMutatPost = () => {
           previousPosts.filter((post) => post.id == variables) //削除したオブジェクトだけを取り除く
         )
       }
+      resetEditedPost()
     },
     onError: (err: any) => {
       if (err.response.data.message) {
