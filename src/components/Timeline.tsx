@@ -24,8 +24,10 @@ const Timeline = () => {
             <Posts
               key={posts.id} //あとでuuidにしたいよ
               username={posts.user_name}
+              user_id={posts.user_id}
               title={posts.title}
               content={posts.content}
+              nice_count={posts.nice_count}
             />
           ))}
         </ul>

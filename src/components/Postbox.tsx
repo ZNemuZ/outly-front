@@ -9,7 +9,6 @@ const Postbox = () => {
   const { editedPost } = useStore()
   const updatePost = useStore((state) => state.updateEditedPost)
   const submitPostHandler = (e: FormEvent<HTMLFormElement>) => {
-    // useQueryPosts.getQueryData()?.unshift(newPost)
     e.preventDefault()
     createPostMutation.mutate({
       user_name: editedPost.username,

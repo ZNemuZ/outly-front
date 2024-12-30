@@ -2,10 +2,18 @@ import { Avatar } from '@mui/material'
 
 interface PostProps {
   username: string
+  user_id: string
   title: string
   content: string
+  nice_count: string
 }
-const Posts: React.FC<PostProps> = ({ username, title, content }) => {
+const Posts: React.FC<PostProps> = ({
+  username,
+  user_id,
+  title,
+  content,
+  nice_count,
+}) => {
   return (
     <div className="flex space-x-4 p-4 border-b border-gray-700 bg-[#262626] mt-10 w-[1630px]">
       {/* Icon */}
@@ -19,7 +27,7 @@ const Posts: React.FC<PostProps> = ({ username, title, content }) => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <h3 className="font-semibold text-gray-100">{username}</h3>
-            <span className="text-gray-500 text-sm">@test_user</span>
+            <span className="text-gray-500 text-sm">{user_id}</span>
           </div>
           <span className="text-gray-500 text-sm">43 m</span>
         </div>
@@ -32,17 +40,17 @@ const Posts: React.FC<PostProps> = ({ username, title, content }) => {
 
         {/* Footer */}
         <div className="flex space-x-6 mt-4 text-gray-400 text-sm">
-          <div className="flex items-center space-x-1">
+          {/* <div className="flex items-center space-x-1">
             <span className="material-icons text-gray-500">comment</span>
             <span>10</span>
-          </div>
+          </div> */}
           <div className="flex items-center space-x-1">
-            <span className="material-icons text-gray-500">thumb_up</span>
-            <span>4001</span>
+            <span className="material-icons text-gray-500">nice_count</span>
+            <span>{nice_count}</span>
           </div>
-          <div className="flex items-center space-x-1">
+          {/* <div className="flex items-center space-x-1">
             <span className="material-icons text-gray-500">visibility</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

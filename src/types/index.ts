@@ -1,6 +1,7 @@
 export type Post = {
   id: number
   user_name: string
+  user_id: string
   title: string
   content: string
   nice_count: string

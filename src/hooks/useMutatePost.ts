@@ -11,7 +11,7 @@ export const useMutatPost = () => {
 
   const createPostMutation = useMutation({
     mutationFn: async (
-      post: Omit<Post, 'id' | 'nice_count' | 'created_at'>
+      post: Omit<Post, 'id' | 'user_id' | 'nice_count' | 'created_at'>
     ) => {
       await axios.post<Post>(`${import.meta.env.VITE_API_URL}/posts`, post)
     },
