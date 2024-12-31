@@ -14,12 +14,12 @@ const Sidebar = () => {
 
         {/* Home*/}
         <SidebarOption text="Home" Icon={HomeIcon} />
-        {/* Search*/}
-        <SidebarOption text="Search" Icon={SavedSearchIcon} />
+        {/* Search
+        <SidebarOption text="Search" Icon={SavedSearchIcon} />*/}
         {/* Profile*/}
         <SidebarOption text="Profile" Icon={AccountBoxIcon} />
-        {/* Settings*/}
-        <SidebarOption text="Settings" Icon={SettingsIcon} />
+        {/* Settings
+        <SidebarOption text="Settings" Icon={SettingsIcon} />*/}
       </div>
     </div>
   )
