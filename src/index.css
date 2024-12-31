@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/*Tailwind のカスタムクラスを追加*/
+@layer utilities {
+  /*ブラウザが自動補完した場合にinput要素に適用*/
+  input:-webkit-autofill {
+    @apply bg-input-bg text-input-text; /* Tailwind のカスタムカラーを使用 */
+    box-shadow: 0 0 0 1000px #202123 inset; /* 背景色を上書き */
+  }
+}
