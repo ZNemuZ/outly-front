@@ -8,14 +8,10 @@ const Timeline = () => {
   return (
     <div>
       {/*Header */}
-      <div>
-        <h2>Home</h2>
-      </div>
+
       {/*PostBox */}
       <Postbox />
       {/*Post */}
-      {/* <Posts username="test" title="testTitle" content="Lets post it" />
-      <Posts username="" title="" content="" /> */}
       {isLoading ? (
         <p>Loading...</p>
       ) : (
