@@ -1,19 +1,32 @@
 import { Avatar } from '@mui/material'
-
+import dayjs from 'dayjs'
+import DeleteIcon from '@mui/icons-material/Delete'
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
+import { useMutatePost } from '../hooks/useMutatePost'
 interface PostProps {
+  id: number
   username: string
   user_id: string
   title: string
   content: string
   nice_count: string
+  created_at: Date
 }
+const formatJapaneseDate = (isoDate: string): string => {
+  const date = dayjs(isoDate)
+  return `${date.format('YYYY年M月D日H時m分')}`
+}
+
 const Posts: React.FC<PostProps> = ({
+  id,
   username,
   user_id,
   title,
   content,
   nice_count,
+  created_at,
 }) => {
+  const { deletePostMutation } = useMutatePost()
   return (
     <div className="flex space-x-4 p-4 border-b border-gray-700 bg-[#262626] mt-10 w-[1630px]">
       {/* Icon */}
@@ -27,9 +40,17 @@ const Posts: React.FC<PostProps> = ({
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <h3 className="font-semibold text-gray-100">{username}</h3>
-            <span className="text-gray-500 text-sm">{user_id}</span>
+            <span className="text-gray-500 text-sm">@{user_id}</span>
           </div>
-          <span className="text-gray-500 text-sm">43 m</span>
+          <span className="text-gray-500 text-sm">
+            {formatJapaneseDate(created_at.toString())}
+          </span>
+          <DeleteIcon
+            className="h-5 w-5 text-gray-500 cursor-pointer"
+            onClick={() => {
+              deletePostMutation.mutate(id)
+            }}
+          />
         </div>
 
         {/* Title */}
@@ -45,7 +66,14 @@ const Posts: React.FC<PostProps> = ({
             <span>10</span>
           </div> */}
           <div className="flex items-center space-x-1">
-            <span className="material-icons text-gray-500">nice_count</span>
+            <span className="material-icons text-gray-500">
+              <ThumbUpAltIcon
+                className="h-5 w-5 text-gray-500 cursor-pointer"
+                onClick={() => {
+                  deletePostMutation.mutate(id)
+                }}
+              />
+            </span>
             <span>{nice_count}</span>
           </div>
           {/* <div className="flex items-center space-x-1">

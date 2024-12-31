@@ -22,12 +22,14 @@ const Timeline = () => {
         <ul>
           {data?.map((posts) => (
             <Posts
-              key={posts.id} //あとでuuidにしたいよ
+              key={posts.id} //uuidにしたい
+              id={posts.id}
               username={posts.user_name}
               user_id={posts.user_id}
               title={posts.title}
               content={posts.content}
               nice_count={posts.nice_count}
+              created_at={posts.created_at}
             />
           ))}
         </ul>

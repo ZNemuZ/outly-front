@@ -4,7 +4,7 @@ import { Post } from '../types'
 import useStore from '../store'
 import { useError } from './userError'
 
-export const useMutatPost = () => {
+export const useMutatePost = () => {
   const queryClient = useQueryClient()
   const { switchErrorHandling } = useError()
   const resetEditedPost = useStore((state) => state.resetEditedPost)
@@ -17,8 +17,6 @@ export const useMutatPost = () => {
     },
     onSuccess: () => {
       const previousPosts = queryClient.getQueryData<Post[]>(['posts'])
-      // console.log('Previous posts:', previousPosts)
-      // console.log('Response:', res)
       if (previousPosts) {
         queryClient.invalidateQueries({ queryKey: ['posts'] })
       }
@@ -34,7 +32,7 @@ export const useMutatPost = () => {
   })
   const deletePostMutation = useMutation({
     mutationFn: async (id: number) =>
-      axios.delete(`${import.meta.env.VITE_API_URL}/posts,${id}`),
+      axios.delete(`${import.meta.env.VITE_API_URL}/posts/${id}`),
     onSuccess: (_, variables) => {
       const previousPosts = queryClient.getQueryData<Post[]>(['posts'])
       if (previousPosts) {
@@ -42,6 +40,7 @@ export const useMutatPost = () => {
           ['posts'],
           previousPosts.filter((post) => post.id == variables) //削除したオブジェクトだけを取り除く
         )
+        queryClient.invalidateQueries({ queryKey: ['posts'] })
       }
       resetEditedPost()
     },
@@ -54,16 +53,5 @@ export const useMutatPost = () => {
     },
   })
 
-  const listPostMutation = useMutation({
-    mutationFn: async () => axios.get(`${import.meta.env.VITE_API_URL}/posts}`),
-    onSuccess: (res) => {},
-    onError: (err: any) => {
-      if (err.responce.data.message) {
-        switchErrorHandling(err.responce.data.message)
-      } else {
-        switchErrorHandling(err.responce.data)
-      }
-    },
-  })
   return { createPostMutation, deletePostMutation }
 }
