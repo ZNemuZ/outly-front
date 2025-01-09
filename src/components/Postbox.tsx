@@ -42,8 +42,7 @@ const Postbox = () => {
                 />
               </div>
               {/* 入力フィールド */}
-              <input
-                type="text"
+              <textarea
                 placeholder="Let's post it!"
                 className="w-full bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none"
                 onChange={(e) =>
@@ -53,6 +52,17 @@ const Postbox = () => {
                 maxLength={300}
               />
             </div>
+            {/* <input
+                type="text"
+                placeholder="Let's post it!"
+                className="w-full bg-transparent text-gray-300 placeholder-gray-500 focus:outline-none"
+                onChange={(e) =>
+                  updatePost({ ...editedPost, content: e.target.value })
+                }
+                value={editedPost.content || ''}
+                maxLength={300}
+              />
+            </div> */}
           </div>
           {/* Post ボタン */}
           <div className="flex justify-end">
