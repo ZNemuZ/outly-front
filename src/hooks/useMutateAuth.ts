@@ -37,7 +37,7 @@ export const useMutateAuth = () => {
   })
   const logoutMutation = useMutation({
     mutationFn: async () =>
-      await axios.post(`${import.meta.env.VITE_API_URL}/`),
+      await axios.post(`${import.meta.env.VITE_API_URL}/logout`),
     onSuccess: () => {
       resetEditedPost()
       navigate('/')
