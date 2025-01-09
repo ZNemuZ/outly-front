@@ -52,6 +52,28 @@ export const useMutatePost = () => {
       }
     },
   })
+  const nicePostMutation = useMutation({
+    mutationFn: async (id: number) =>
+      axios.delete(`${import.meta.env.VITE_API_URL}/posts/${id}`),
+    onSuccess: (_, variables) => {
+      const previousPosts = queryClient.getQueryData<Post[]>(['posts'])
+      if (previousPosts) {
+        queryClient.setQueryData<Post[]>(
+          ['posts'],
+          previousPosts.filter((post) => post.id == variables) //削除したオブジェクトだけを取り除く
+        )
+        queryClient.invalidateQueries({ queryKey: ['posts'] })
+      }
+      resetEditedPost()
+    },
+    onError: (err: any) => {
+      if (err.response.data.message) {
+        switchErrorHandling(err.response.data.message)
+      } else {
+        switchErrorHandling(err.response.data)
+      }
+    },
+  })
 
-  return { createPostMutation, deletePostMutation }
+  return { createPostMutation, deletePostMutation, nicePostMutation }
 }
