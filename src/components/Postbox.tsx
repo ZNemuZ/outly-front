@@ -1,8 +1,8 @@
 import { Avatar } from '@mui/material'
-import React, { FormEvent } from 'react'
+import { FormEvent } from 'react'
 import { useMutatePost } from '../hooks/useMutatePost'
 import useStore from '../store'
-import { useQueryPosts } from '../hooks/useQueryPosts'
+// import { useQueryPosts } from '../hooks/useQueryPosts'
 
 const Postbox = () => {
   const { createPostMutation } = useMutatePost()

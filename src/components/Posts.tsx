@@ -1,7 +1,7 @@
 import { Avatar } from '@mui/material'
 import dayjs from 'dayjs'
 import DeleteIcon from '@mui/icons-material/Delete'
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
+// import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import { useMutatePost } from '../hooks/useMutatePost'
 import React from 'react'
 interface PostProps {
@@ -24,10 +24,10 @@ const Posts: React.FC<PostProps> = ({
   user_id,
   title,
   content,
-  nice_count,
+  // nice_count,
   created_at,
 }) => {
-  const { deletePostMutation, nicePostMutation } = useMutatePost()
+  const { deletePostMutation } = useMutatePost()
   return (
     <div className="flex space-x-4 p-4 border-b border-gray-700 bg-[#262626] mt-10 w-[1630px]">
       {/* Icon */}

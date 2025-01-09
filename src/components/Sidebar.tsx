@@ -1,16 +1,16 @@
-import HomeIcon from '@mui/icons-material/Home'
-import SavedSearchIcon from '@mui/icons-material/SavedSearch'
-import AccountBoxIcon from '@mui/icons-material/AccountBox'
-import SettingsIcon from '@mui/icons-material/Settings'
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
+// import HomeIcon from '@mui/icons-material/Home'
+// import SavedSearchIcon from '@mui/icons-material/SavedSearch'
+// import AccountBoxIcon from '@mui/icons-material/AccountBox'
+// import SettingsIcon from '@mui/icons-material/Settings'
+// import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
+// import { useNavigate } from 'react-router-dom'
 import SidebarOption from './SidebarOption'
-import { useNavigate } from 'react-router-dom'
 import { Logout } from '@mui/icons-material'
 import { useQueryClient } from '@tanstack/react-query'
 import { useMutateAuth } from '../hooks/useMutateAuth'
 
 const Sidebar = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const { logoutMutation } = useMutateAuth()
   const queryClient = useQueryClient()
   // const onClick = () => {

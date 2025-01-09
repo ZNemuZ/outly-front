@@ -1,4 +1,3 @@
-import { title } from 'process'
 import { useQueryPosts } from '../hooks/useQueryPosts'
 import Postbox from './Postbox'
 import Posts from './Posts'
