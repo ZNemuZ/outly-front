@@ -1,50 +1,20 @@
-# React + TypeScript + Vite
+# 英文アウトプットアプリ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このアプリは、英語力を向上させたい方々のために開発しました。
+記憶はアウトプットを通じて定着すると言われており、日々の出来事を英語で表現し投稿する習慣を支援することで、多くの方々のお役に立てると考えています。
 
-Currently, two official plugins are available:
+また、他のユーザーの投稿を確認することもできるため、互いに刺激を受けながらモチベーションを維持し、継続して取り組むことができると考えています。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 使い方
 
-## Expanding the ESLint configuration
+アカウントをお持ちでない方  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1.SignUp画面でメールアドレス、ユーザー名、パスワードを入力し、Signupボタンを押下  
+2.ホーム画面でタイトルと本文を入力し、Postボタンを押下
 
-- Configure the top-level `parserOptions` property like this:
+アカウントをお持ちの方  
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1.LogIn画面でメールアドレス、パスワードを入力し、LogInボタンを押下  
+2.ホーム画面でタイトルと本文を入力し、Postボタンを押下
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
